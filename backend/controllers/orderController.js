@@ -27,7 +27,7 @@ const createOrder = asyncHandler(async (req, res) => {
 
   try {
     const trackingId = uuidv4();
-    const trackingUrl = `https://localhost:5000/api/orders/track/${trackingId}`; 
+    const trackingUrl = `https://billgenius.netlify.app/api/orders/track/${trackingId}`; 
 
     // Generate QR Code for Tracking
     const qrCodeData = await QRCode.toDataURL(trackingUrl);
