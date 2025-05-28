@@ -12,7 +12,7 @@ const CustomerDashboard = () => {
       const token = userInfo?.token;
 
       // First get the invoice path
-      const response = await fetch(`http://localhost:5000/api/orders/invoice/${orderId}`, {
+      const response = await fetch(`https://billgenius.onrender.com/api/orders/invoice/${orderId}`, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -28,7 +28,7 @@ const CustomerDashboard = () => {
       
       if (data.success && data.filePath) {
         // Now fetch the actual PDF file
-        const pdfUrl = `http://localhost:5000/${data.filePath}`;
+        const pdfUrl = `https://billgenius.onrender.com/${data.filePath}`;
         window.open(pdfUrl, '_blank');
       } else {
         throw new Error(data.message || 'Failed to generate invoice');
